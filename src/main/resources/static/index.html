@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My K8s Fullstack App</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        button { padding: 10px 20px; font-size: 16px; margin: 10px; cursor: pointer; }
+        .result { font-weight: bold; color: #0056b3; }
+    </style>
+</head>
+<body>
+
+<h1>Kubernetes Interactive API</h1>
+
+<div>
+    <button onclick="fetchName()">Get Name</button>
+    <p>Name: <span id="nameResult" class="result">Waiting...</span></p>
+</div>
+
+<div>
+    <button onclick="fetchAddress()">Get Address</button>
+    <p>Address: <span id="addressResult" class="result">Waiting...</span></p>
+</div>
+
+<script>
+    // Calls the /getName API and updates the page
+    async function fetchName() {
+        const response = await fetch('/getName');
+        const data = await response.text();
+        document.getElementById('nameResult').innerText = data;
+    }
+
+    // Calls the /getAddress API and updates the page
+    async function fetchAddress() {
+        const response = await fetch('/getAddress');
+        const data = await response.text();
+        document.getElementById('addressResult').innerText = data;
+    }
+</script>
+
+</body>
+</html>

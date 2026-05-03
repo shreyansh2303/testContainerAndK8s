@@ -13,8 +13,15 @@ public class TestContainersAndK8sApplication {
 		SpringApplication.run(TestContainersAndK8sApplication.class, args);
 	}
 
-	@GetMapping("/")
-	public String helloKubernetes() {
-		return "Hello, Kubernetes! My CI/CD pipeline works!";
+	// New Endpoint 1
+	@GetMapping("/getName")
+	public String getName() {
+		return "Shreyansh";
+	}
+
+	// New Endpoint 2
+	@GetMapping("/getAddress")
+	public String getAddress() {
+		return "Hyderabad, Telangana, India";
 	}
 }
