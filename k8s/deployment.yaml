@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-app-deployment
+  labels:
+    app: java-api
+spec:
+  replicas: 2 # We are telling K8s to run 2 instances of your app for high availability!
+  selector:
+    matchLabels:
+      app: java-api
+  template:
+    metadata:
+      labels:
+        app: java-api
+    spec:
+      containers:
+        - name: java-api-container
+          image: shreyansh2303/my-k8s-app:latest # Make sure to change this!
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-app-service
+spec:
+  type: LoadBalancer # This exposes it to your local machine
+  selector:
+    app: java-api # This connects the Service to the Deployment above
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
