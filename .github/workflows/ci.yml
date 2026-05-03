@@ -1,9 +1,9 @@
 name: Build and Push Docker Image
 
-# This tells GitHub to run this job every time you push to the "main" branch
+# This tells GitHub to run this job every time you push to the "master" branch
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build:
